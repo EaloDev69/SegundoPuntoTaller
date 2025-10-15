@@ -41,6 +41,46 @@ public class Rectangulo extends Figura {
             super.mover(0, unidades);
         }
     }
+    public void cambiarEscala(double factorX, double factorY) {
+        double nuevoX = p1.getX() + (p2.getX() - p1.getX()) * factorX;
+        double nuevoY = p1.getY() + (p2.getY() - p1.getY()) * factorY;
+        
+        p2.setX(nuevoX);
+        p2.setY(nuevoY);
+        
+
+        p3.setY(nuevoY);
+        p4.setX(nuevoX);
+    }
     
+
+    public void cambiarEscala(double factor) {
+        if (factor > 0) {
+            if (factor < 0.1) {
+                System.out.println("Advertencia: El factor es muy pequeño");
+                cambiarEscala(factor, factor);
+            } else if (factor > 10) {
+                System.out.println("Advertencia: El factor es muy grande");
+                cambiarEscala(factor, factor);
+            } else {
+                cambiarEscala(factor, factor);
+            }
+        } else {
+            System.out.println("Error: El factor debe ser positivo");
+        }
+    }
+    
+
+    @Override
+    public String toString() {
+        return "Rectangulo [" + super.toString() + 
+               " | Area: " + calcularArea() + "]";
+    }
+    
+    public String obtenerDimensiones() {
+        double base = Math.abs(p2.getX() - p1.getX());
+        double altura = Math.abs(p2.getY() - p1.getY());
+        return "Base: " + base + ", Altura: " + altura;
+    }
     
 }
