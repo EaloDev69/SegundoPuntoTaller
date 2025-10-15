@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.segundopuntotaller_miguelangelealovalle;
+package Controlador;
 
 /**
  *
  * @author USUARIO
  */
-public class SegundoPuntoTaller_miguelangelealovalle {
+public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
