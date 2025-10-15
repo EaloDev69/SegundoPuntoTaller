@@ -1,23 +1,18 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-package Controlador;
+package com.mycompany.segundopuntotaller_miguelangelealovalle;
 
-/**
- *
- * @author USUARIO
- */
 import Modelo.Rectangulo;
 import Vista.CanvasPlano;
 import Vista.MenuOpciones;
 
-public class Main {
+public class SegundoPuntoTaller_miguelangelealovalle {
     
     public static void main(String[] args) {
         // Inicialización de componentes
         MenuOpciones menu = new MenuOpciones();
         CanvasPlano canvas = new CanvasPlano(800, 600);
-        Escala escala = new Escala();
         
         // Crear rectángulo inicial
         System.out.println("=== CREACION DEL RECTANGULO ===");
@@ -29,7 +24,7 @@ public class Main {
         canvas.dibujarRectangulo(rectangulo);
         menu.pausar();
         
-
+        // Bucle principal del programa
         boolean continuar = true;
         
         while (continuar) {
@@ -65,15 +60,18 @@ public class Main {
                 case 4: // Cambiar escala
                     canvas.limpiarPantalla();
                     System.out.println("\n=== CAMBIAR ESCALA ===");
-                    int tipoEscala = menu.leerTipoEscala();
+                    System.out.println("1. Factor unico");
+                    System.out.println("2. Factores separados");
+                    System.out.print("Seleccione: ");
+                    int tipoEscala = menu.leerOpcion();
                     
                     if (tipoEscala == 1) {
                         double factor = menu.leerFactorEscala();
-                        escala.aplicarEscala(rectangulo, factor);
+                        rectangulo.cambiarEscala(factor);
                         canvas.mostrarCambioEscala(factor);
                     } else {
                         double[] factores = menu.leerFactoresEscala();
-                        escala.aplicarEscala(rectangulo, factores[0], factores[1]);
+                        rectangulo.cambiarEscala(factores[0], factores[1]);
                         canvas.mostrarMensaje("Escala aplicada: X=" + factores[0] + ", Y=" + factores[1]);
                     }
                     
