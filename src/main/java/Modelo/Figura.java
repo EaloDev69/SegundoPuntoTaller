@@ -43,4 +43,31 @@ public class Figura {
         return p4;
     }
     
+     public boolean estaDentro(Punto punto) {
+        double minX = Math.min(p1.getX(), p2.getX());
+        double maxX = Math.max(p1.getX(), p2.getX());
+        double minY = Math.min(p1.getY(), p2.getY());
+        double maxY = Math.max(p1.getY(), p2.getY());
+        
+        return punto.getX() >= minX && punto.getX() <= maxX &&
+               punto.getY() >= minY && punto.getY() <= maxY;
+    }
+    
+
+    public void mover(double dx, double dy) {
+        p1.setX(p1.getX() + dx);
+        p1.setY(p1.getY() + dy);
+        p2.setX(p2.getX() + dx);
+        p2.setY(p2.getY() + dy);
+        p3.setX(p3.getX() + dx);
+        p3.setY(p3.getY() + dy);
+        p4.setX(p4.getX() + dx);
+        p4.setY(p4.getY() + dy);
+    }
+    
+    @Override
+    public String toString() {
+        return "Figura con vértices: " + p1 + ", " + p2 + ", " + p3 + ", " + p4;
+    }
+    
 }
